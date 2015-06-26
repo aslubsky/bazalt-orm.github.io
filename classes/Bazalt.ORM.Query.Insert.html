@@ -1,0 +1,2826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Bazalt.html">\Bazalt</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">134</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">2</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-95041016"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-95041016" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-664291405"></a>
+                                <a href="../namespaces/Bazalt.html" style="margin-left: 30px; padding-left: 0">Bazalt</a>
+            </div>
+            <div id="namespace-664291405" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1157183919"></a>
+                                <a href="../namespaces/Bazalt.ORM.html" style="margin-left: 30px; padding-left: 0">ORM</a>
+            </div>
+            <div id="namespace-1157183919" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1588435575"></a>
+                                <a href="../namespaces/Bazalt.ORM.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-1588435575" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Adapter.AbstractAdapter.html">AbstractAdapter</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Adapter.Mssql.html">Mssql</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Adapter.Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Adapter.Sqlite.html">Sqlite</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1639378709"></a>
+                                <a href="../namespaces/Bazalt.ORM.Connection.html" style="margin-left: 30px; padding-left: 0">Connection</a>
+            </div>
+            <div id="namespace-1639378709" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Connection.AbstractConnection.html">AbstractConnection</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Connection.Manager.html">Manager</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Connection.Mysql.html">Mysql</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-427754349"></a>
+                                <a href="../namespaces/Bazalt.ORM.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-427754349" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Base.html">Base</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Database.html">Database</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Insert.html">Insert</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.NestedSet.html">NestedSet</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Query.html">Query</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Exception.Table.html">Table</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-724025875"></a>
+                                <a href="../namespaces/Bazalt.ORM.Generator.html" style="margin-left: 30px; padding-left: 0">Generator</a>
+            </div>
+            <div id="namespace-724025875" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Generator.Models.html">Models</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1722426953"></a>
+                                <a href="../namespaces/Bazalt.ORM.Plugin.html" style="margin-left: 30px; padding-left: 0">Plugin</a>
+            </div>
+            <div id="namespace-1722426953" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Plugin.AbstractPlugin.html">AbstractPlugin</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Plugin.RelationsCounter.html">RelationsCounter</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Plugin.Serializable.html">Serializable</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Plugin.Timestampable.html">Timestampable</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-633215924"></a>
+                                <a href="../namespaces/Bazalt.ORM.Query.html" style="margin-left: 30px; padding-left: 0">Query</a>
+            </div>
+            <div id="namespace-633215924" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Builder.html">Builder</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Delete.html">Delete</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Insert.html">Insert</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Join.html">Join</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Select.html">Select</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Union.html">Union</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.Update.html">Update</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1572611545"></a>
+                                <a href="../namespaces/Bazalt.ORM.Relation.html" style="margin-left: 30px; padding-left: 0">Relation</a>
+            </div>
+            <div id="namespace-1572611545" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Bazalt.ORM.Relation.IRelationMany.html">IRelationMany</a></li>
+                                                    <li class="interface"><a href="../classes/Bazalt.ORM.Relation.IRelationOne.html">IRelationOne</a></li>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.Relation.AbstractRelation.html">AbstractRelation</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Relation.Many2Many.html">Many2Many</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Relation.NestedSet.html">NestedSet</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Relation.One2Many.html">One2Many</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Relation.One2One.html">One2One</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.BaseRecord.html">BaseRecord</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.CacheAdapter.html">CacheAdapter</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Column.html">Column</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Query.html">Query</a></li>
+                                                    <li class="class"><a href="../classes/Bazalt.ORM.Record.html">Record</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Bazalt.ORM.html">ORM</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/ORM_Connection_Mssql.html">ORM_Connection_Mssql</a></li>
+                                                    <li class="class"><a href="../classes/ORM_Index_Abstract.html">ORM_Index_Abstract</a></li>
+                                                    <li class="class"><a href="../classes/ORM_Index_Foreign.html">ORM_Index_Foreign</a></li>
+                                                    <li class="class"><a href="../classes/ORM_Index_FullText.html">ORM_Index_FullText</a></li>
+                                                    <li class="class"><a href="../classes/ORM_Index_Unique.html">ORM_Index_Unique</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Bazalt.ORM.Query.html">\Bazalt\ORM\Query</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Bazalt\ORM\Query</small>Insert</h1>
+                    <p><em>Insert
+Генерує INSERT запит до БД</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#method_buildSQL" class="">buildSQL()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method___get" class="">__get()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_leftJoin" class="">leftJoin()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_innerJoin" class="">innerJoin()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_rightJoin" class="">rightJoin()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_outerJoin" class="">outerJoin()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_from" class="">from()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_set" class="">set()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_where" class="">where()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_andWhere" class="">andWhere()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_orWhere" class="">orWhere()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_andWhereGroup" class="">andWhereGroup()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_orWhereGroup" class="">orWhereGroup()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_endWhereGroup" class="">endWhereGroup()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_whereIn" class="">whereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_andWhereIn" class="">andWhereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_orWhereIn" class="">orWhereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_notWhereIn" class="">notWhereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_andNotWhereIn" class="">andNotWhereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_orNotWhereIn" class="">orNotWhereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_getCacheKey" class="">getCacheKey()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_toSQL" class="">toSQL()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_noCache" class="">noCache()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_connection" class="">connection()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_getLastInsertId" class="">getLastInsertId()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_exec" class="">exec()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_getErrorInfo" class="">getErrorInfo()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_getFullQuery" class="">getFullQuery()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_fetch" class="">fetch()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_fetchAll" class="">fetchAll()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_rowCount" class="">rowCount()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_fetchColumnsInfo" class="">fetchColumnsInfo()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method___toString" class="">__toString()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#method_onDupicateUpdate" class="">onDupicateUpdate()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_generateAlias" class="">generateAlias()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#method_getQueryParams" class="">getQueryParams()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_getCacheTags" class="">getCacheTags()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#method_getFrom" class="">getFrom()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_explode" class="">explode()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_addWhere" class="">addWhere()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method_addWhereIn" class="">addWhereIn()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_execute" class="">execute()</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#method_fillClass" class="">fillClass()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_fetchType" class="">$fetchType</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_setParams" class="">$setParams</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_from" class="">$from</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_models" class="">$models</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_where" class="">$where</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_whereParams" class="">$whereParams</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_aliases" class="">$aliases</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_joins" class="">$joins</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_whereGroups" class="">$whereGroups</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#property_whereGroupEmpty" class="">$whereGroupEmpty</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#property_query" class="">$query</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#property_connection" class="">$connection</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#property_params" class="">$params</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#property_cacheTags" class="">$cacheTags</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#property_cached" class="">$cached</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.html#property_error" class="">$error</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#property_fields" class="">$fields</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#property_onDupicateUpdate" class="">$onDupicateUpdate</a><br />
+                                                                    <a href="../classes/Bazalt.ORM.Query.Insert.html#property_dupicateParamsUsed" class="">$dupicateParamsUsed</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/Bazalt.ORM.Query.Builder.html#method__set" class="">_set()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/ORM.Query.Insert.html"><div class="path-wrapper">ORM/Query/Insert.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">ORM\Query</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                        <div class="namespace-wrapper"><a href="../classes/Bazalt.ORM.Query.html">\Bazalt\ORM\Query</a></div>
+                                                                    
+                                        <div class="namespace-wrapper"><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a></div>
+                                                                                                    <div class="namespace-wrapper">\Bazalt\ORM\Query\Insert</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>System</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                copyright
+                            </th>
+                            <td>
+                                                                    <p>2010 Equalteam</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                    <p>GPLv3</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                version
+                            </th>
+                            <td>
+                                                                    <p>$Revision: 133 $</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_fetchType" name="property_fetchType" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$fetchType</h3>
+                <pre class="signature">$fetchType : string</pre>
+                <p><em>Назва моделі, в яку будуть завантажені результати вибірки</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_setParams" name="property_setParams" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$setParams</h3>
+                <pre class="signature">$setParams : array</pre>
+                <p><em>Значення для полів $fields</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_from" name="property_from" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$from</h3>
+                <pre class="signature">$from : string</pre>
+                <p><em>Назва таблиці для якої будується запит</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_models" name="property_models" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$models</h3>
+                <pre class="signature">$models : array</pre>
+                <p><em>Список моделей, які є в запиті</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_where" name="property_where" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$where</h3>
+                <pre class="signature">$where : string</pre>
+                <p><em>Умова вибірки</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_whereParams" name="property_whereParams" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$whereParams</h3>
+                <pre class="signature">$whereParams : array</pre>
+                <p><em>Параметри умови</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_aliases" name="property_aliases" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$aliases</h3>
+                <pre class="signature">$aliases : array</pre>
+                <p><em>Масив аліасів вибірки</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_joins" name="property_joins" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$joins</h3>
+                <pre class="signature">$joins : array</pre>
+                <p><em>Масив JOIN-ів, ORM_Query_Join</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_whereGroups" name="property_whereGroups" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$whereGroups</h3>
+                <pre class="signature">$whereGroups : </pre>
+                <p><em>Кількість групувань where</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_whereGroupEmpty" name="property_whereGroupEmpty" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$whereGroupEmpty</h3>
+                <pre class="signature">$whereGroupEmpty : </pre>
+                <p><em>Флаг вказує чи група where пуста</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_query" name="property_query" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$query</h3>
+                <pre class="signature">$query : </pre>
+                <p><em>Запит</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_connection" name="property_connection" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$connection</h3>
+                <pre class="signature">$connection : \Bazalt\ORM\Connection\AbstractConnection</pre>
+                <p><em>Поточне підключення</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Bazalt.ORM.Connection.AbstractConnection.html">\Bazalt\ORM\Connection\AbstractConnection</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_params" name="property_params" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$params</h3>
+                <pre class="signature">$params : </pre>
+                <p><em>Параметри запиту</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_cacheTags" name="property_cacheTags" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$cacheTags</h3>
+                <pre class="signature">$cacheTags : </pre>
+                <p><em>Теги кешу</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_cached" name="property_cached" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$cached</h3>
+                <pre class="signature">$cached : </pre>
+                <p><em>Флаг вказує чи кешувати запит</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            <p>r1231</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_error" name="property_error" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$error</h3>
+                <pre class="signature">$error : </pre>
+                <p><em>Масив данних про помилку, якщо вона виникає під час виконання запиту</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_fields" name="property_fields" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$fields</h3>
+                <pre class="signature">$fields : array</pre>
+                <p><em>Масив полів для запиту</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_onDupicateUpdate" name="property_onDupicateUpdate" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$onDupicateUpdate</h3>
+                <pre class="signature">$onDupicateUpdate : array</pre>
+                <p><em>Якщо true - запит буде оновлювати дані на сервері, якщо такий запис вже існує</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_dupicateParamsUsed" name="property_dupicateParamsUsed" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$dupicateParamsUsed</h3>
+                <pre class="signature">$dupicateParamsUsed : array</pre>
+                <p><em>Використовується для генерації ON DUPICATE UPDATE</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_buildSQL" name="method_buildSQL" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">buildSQL()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">buildSQL() : string</pre>
+                <p><em>Генерує SQL для запиту</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___get" name="method___get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__get(  <span class="argument">$name</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>on next refactoring replace this by getters</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_leftJoin" name="method_leftJoin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">leftJoin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">leftJoin(string  <span class="argument">$name</span>, array  <span class="argument">$conditions = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає LEFT JOIN до запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Назва джойна</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>Масив умов</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_innerJoin" name="method_innerJoin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">innerJoin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">innerJoin(string  <span class="argument">$name</span>, array  <span class="argument">$conditions = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає INNER JOIN до запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Назва джойна</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>Масив умов</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_rightJoin" name="method_rightJoin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">rightJoin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">rightJoin(string  <span class="argument">$name</span>, array  <span class="argument">$conditions = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає RIGHT JOIN до запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Назва джойна</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>Масив умов</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_outerJoin" name="method_outerJoin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">outerJoin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">outerJoin(string  <span class="argument">$name</span>, array  <span class="argument">$conditions = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає OUTER JOIN до запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Назва джойна</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>Масив умов</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_from" name="method_from" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">from()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">from(string  <span class="argument">$name</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Встановлює модель або моделі (розділені комою), для якої буде будуватись запит</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Назва таблиці</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Exception</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_set" name="method_set" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">set()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">set(\Bazalt\ORM\Record|string  <span class="argument">$o</span>, mixed  <span class="argument">$param = null</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Встановлює об&#039;єкт моделі (тобто всі її поля) або пару &#039;назва стовпця&#039; =&gt; &#039;значення&#039;
+для INSERT або UPDATE запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Record.html">\Bazalt\ORM\Record</a>|string</td>
+                                <td>$o </td>
+                                <td><p>Об'єкт моделі або назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$param </td>
+                                <td><p>Значення</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_where" name="method_where" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">where()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">where(string  <span class="argument">$condition</span>, array|string  <span class="argument">$params = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до запиту WHERE &quot;вираз&quot;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$condition </td>
+                                <td><p>Вираз</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array|string</td>
+                                <td>$params </td>
+                                <td><p>Параметри виразу</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_andWhere" name="method_andWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">andWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">andWhere(string  <span class="argument">$condition</span>, array|string  <span class="argument">$params = array()</span>) : \Bazalt\ORM\Query\Builder|\Bazalt\ORM\Query\Select</pre>
+                <p><em>Додає до WHERE AND &quot;вираз&quot;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$condition </td>
+                                <td><p>Вираз</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array|string</td>
+                                <td>$params </td>
+                                <td><p>Параметри виразу</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|<a href="../classes/Bazalt.ORM.Query.Select.html">\Bazalt\ORM\Query\Select</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_orWhere" name="method_orWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">orWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">orWhere(string  <span class="argument">$condition</span>, array|string  <span class="argument">$params = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE OR &quot;вираз&quot;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$condition </td>
+                                <td><p>Вираз</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array|string</td>
+                                <td>$params </td>
+                                <td><p>Параметри виразу</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_andWhereGroup" name="method_andWhereGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">andWhereGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">andWhereGroup() : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE гурпу умов ( .</em></p>
+                <p>.. ) через AND</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_orWhereGroup" name="method_orWhereGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">orWhereGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">orWhereGroup() : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE гурпу умов ( .</em></p>
+                <p>.. ) через OR</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_endWhereGroup" name="method_endWhereGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">endWhereGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">endWhereGroup() : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Закриває відкриту раніше групу умов, доданих через andWhereGroup або orWhereGroup</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_whereIn" name="method_whereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">whereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">whereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE AND IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_andWhereIn" name="method_andWhereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">andWhereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">andWhereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE AND IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_orWhereIn" name="method_orWhereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">orWhereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">orWhereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE OR IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_notWhereIn" name="method_notWhereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">notWhereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">notWhereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE AND NOT IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_andNotWhereIn" name="method_andNotWhereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">andNotWhereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">andNotWhereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE AND NOT IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_orNotWhereIn" name="method_orNotWhereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">orNotWhereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">orNotWhereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE OR NOT IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCacheKey" name="method_getCacheKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCacheKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCacheKey() : string</pre>
+                <p><em>Повертає ключ в кеші для даного запиту</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_toSQL" name="method_toSQL" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">toSQL()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">toSQL() : string</pre>
+                <p><em>Генерує SQL запит з підставленими параметрами</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>SQL запит</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$sql = &#039;&#039;</span>, array  <span class="argument">$params = array()</span>, array  <span class="argument">$cacheTags = array()</span>) </pre>
+                <p><em>Construct</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>SQL запит</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Параметри запиту</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$cacheTags </td>
+                                <td><p>Теги кешу</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_noCache" name="method_noCache" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">noCache()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">noCache() </pre>
+                <p><em>Відключає кешування запиту</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                                                            <p>r1231</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_connection" name="method_connection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">connection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">connection(\Bazalt\ORM\Connection\AbstractConnection  <span class="argument">$connection = null</span>) : \Bazalt\ORM\Connection\AbstractConnection|\Bazalt\ORM\Query</pre>
+                <p><em>Встановлює підключення до БД для запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Connection.AbstractConnection.html">\Bazalt\ORM\Connection\AbstractConnection</a></td>
+                                <td>$connection </td>
+                                <td><p>Підключення до БД</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Connection.AbstractConnection.html">\Bazalt\ORM\Connection\AbstractConnection</a>|<a href="../classes/Bazalt.ORM.Query.html">\Bazalt\ORM\Query</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLastInsertId" name="method_getLastInsertId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLastInsertId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLastInsertId() : mixed</pre>
+                <p><em>Return last inserted id</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>Last inserted id</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exec" name="method_exec" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exec()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exec(boolean  <span class="argument">$returnCount = true</span>) : integer|void</pre>
+                <p><em>Виконує запит до БД
+WARNING! Dont work with select, only on MySQL</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$returnCount </td>
+                                <td><p>Флаг, визначаэ повертати к-ть задіяних рядків чи ні</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer|void
+                                            &mdash; <p>Кількість задіяних рядків</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getErrorInfo" name="method_getErrorInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getErrorInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getErrorInfo() : array</pre>
+                <p><em>Повертає інформацію про помилку, яка виникла під чкас виконання запиту</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Інформація про помилку</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://php.net/manual/en/pdo.errorinfo.php"><span class="namespace-wrapper">http://php.net/manual/en/pdo.errorinfo.php</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getFullQuery" name="method_getFullQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getFullQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getFullQuery(string  <span class="argument">$query</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Формує повний SQL-запит з усіма заповненими параметрами</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$query </td>
+                                <td><p>Запит</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Масив парамаетрів</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>SQL-запит</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fetch" name="method_fetch" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fetch()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fetch(string  <span class="argument">$baseClass = &#039;stdClass&#039;</span>) : mixed</pre>
+                <p><em>Повертає один результат вибірки</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$baseClass </td>
+                                <td><p>Назва моделі</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fetchAll" name="method_fetchAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fetchAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fetchAll(string  <span class="argument">$baseClass = &#039;stdClass&#039;</span>) : array</pre>
+                <p><em>Повертає масив результатів вибірки</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$baseClass </td>
+                                <td><p>Назва моделі</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_rowCount" name="method_rowCount" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">rowCount()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">rowCount() : integer|false</pre>
+                <p><em>Повертає к-сть записів в БД для поточного запиту або false якщо к-ть визначити не вдалось</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer|false
+                                            &mdash; <p>К-ть записів</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fetchColumnsInfo" name="method_fetchColumnsInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fetchColumnsInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fetchColumnsInfo() : array</pre>
+                <p><em>Повертає масив інформації про стовпці</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___toString" name="method___toString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__toString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__toString() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_onDupicateUpdate" name="method_onDupicateUpdate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">onDupicateUpdate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">onDupicateUpdate() : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Генерує запит щоб він оновлював дані на сервері, якщо такий запис вже існує</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_generateAlias" name="method_generateAlias" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">generateAlias()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">generateAlias(string  <span class="argument">$tableName</span>) : string</pre>
+                <p><em>Генерує унікальний аліас для таблиці</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tableName </td>
+                                <td><p>Назва таблиці</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getQueryParams" name="method_getQueryParams" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getQueryParams()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getQueryParams() : array</pre>
+                <p><em>Повертає масив параметрів для запиту</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCacheTags" name="method_getCacheTags" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getCacheTags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCacheTags() : array</pre>
+                <p><em>Повертає масив тегів кешу для запиту</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Масив тегів</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getFrom" name="method_getFrom" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getFrom()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getFrom() : string</pre>
+                <p><em>Повертає список таблиць і аліасів для запиту</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_explode" name="method_explode" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">explode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">explode(string  <span class="argument">$string</span>, string  <span class="argument">$sep = &#039;,&#039;</span>) : array</pre>
+                <p><em>Аналог натівної ф-ції explode</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$string </td>
+                                <td><p>Вхідна строка</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sep </td>
+                                <td><p>Сепаратор</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addWhere" name="method_addWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">addWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addWhere(string  <span class="argument">$condition</span>, string  <span class="argument">$params = array()</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE &quot;вираз&quot;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$condition </td>
+                                <td><p>Вираз</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$params </td>
+                                <td><p>Параметри виразу</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addWhereIn" name="method_addWhereIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">addWhereIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addWhereIn(string  <span class="argument">$field</span>, \Bazalt\ORM\Query\Builder|array  <span class="argument">$items</span>, string  <span class="argument">$oper = &#039;AND&#039;</span>, boolean  <span class="argument">$not = false</span>) : \Bazalt\ORM\Query\Builder</pre>
+                <p><em>Додає до WHERE IN (&quot;вираз&quot;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>|array</td>
+                                <td>$items </td>
+                                <td><p>Запит ORMQuery або масив значень</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$oper </td>
+                                <td><p>Оператор через який буде додано вираз (AND чи OR)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$not </td>
+                                <td><p>Флаг, якщо встановлено true, то додає NOT перед виразом, по замовчуванню false</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Exception</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Bazalt.ORM.Query.Builder.html">\Bazalt\ORM\Query\Builder</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_execute" name="method_execute" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">execute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">execute() : \PDO</pre>
+                <p><em>Виконує запит та повертає обєкт PDO</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \PDO
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fillClass" name="method_fillClass" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">fillClass()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fillClass(array  <span class="argument">$data</span>, string  <span class="argument">$class</span>) : mixed</pre>
+                <p><em>Створює обєкт класу $class і аповнює даними з масиву $data</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$data </td>
+                                <td><p>Дані</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$class </td>
+                                <td><p>Назва моделі</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.html"><div class="path-wrapper">\Bazalt\ORM\Query</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__set" name="method__set" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">_set()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_set(string  <span class="argument">$field</span>, mixed  <span class="argument">$param</span>) : void</pre>
+                <p><em>Встановлює пару &#039;назва стовпця&#039; =&gt; &#039;значення&#039; для INSERT або UPDATE запиту</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>Назва поля</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$param </td>
+                                <td><p>Значення</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Bazalt.ORM.Query.Builder.html"><div class="path-wrapper">\Bazalt\ORM\Query\Builder</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Insert.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/ORM/Query/Insert.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Bazalt.html">\Bazalt</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 26th, 2015 at 10:29.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
